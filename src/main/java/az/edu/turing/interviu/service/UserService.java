@@ -26,6 +26,6 @@ public class UserService {
         return userMapper.entityToDto(userEntity);
     }
 
-    public
+//    public
 
 }
