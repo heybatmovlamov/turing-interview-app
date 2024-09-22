@@ -26,15 +26,15 @@ public class JwtFilter extends OncePerRequestFilter {
         String authorizationHeader = request.getHeader("Authorization");
 
         String token = null;
-        String finCode = null;
+        String email = null;
 
         if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
             token = authorizationHeader.substring(7);
-            finCode = jwtService.extractUsername(token);
+            email = jwtService.extractUsername(token);
         }
 
-        if (finCode != null && SecurityContextHolder.getContext().getAuthentication() == null) {
-            UserDetails userDetails = userDetailsService.loadUserByUsername(finCode);
+        if (email != null && SecurityContextHolder.getContext().getAuthentication() == null) {
+            UserDetails userDetails = userDetailsService.loadUserByUsername(email);
 
             if (jwtService.validateToken(token, userDetails)) {
                 UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
