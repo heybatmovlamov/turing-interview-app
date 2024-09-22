@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 @RequiredArgsConstructor
 @Service
-public class QuestionsService {
+public class AdminQuestionsService {
 
     private final QuestionsRepository questionsRepository;
     private final QuestionsMapper questionsMapper;
