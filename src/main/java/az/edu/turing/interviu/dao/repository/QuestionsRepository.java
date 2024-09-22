@@ -9,5 +9,5 @@ import java.util.List;
 @Repository
 public interface QuestionsRepository extends JpaRepository<QuestionsEntity, Long> {
     List<QuestionsEntity> findByCategory(String category);
-    void saveQuestions(QuestionsEntity questionsEntity);
+//    void saveQuestions(QuestionsEntity questionsEntity);
 }
