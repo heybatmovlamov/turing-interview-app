@@ -1,6 +1,7 @@
 package az.edu.turing.interviu.controller;
 
 import az.edu.turing.interviu.model.dto.QuestionsDto;
+import az.edu.turing.interviu.model.dto.user.UserQuestions;
 import az.edu.turing.interviu.service.QuestionsService;
 import az.edu.turing.interviu.service.UserService;
 import az.edu.turing.interviu.service.authorization.AuthorizationHelperService;
@@ -22,5 +23,9 @@ public class UserController {
         String email = authorizationHelperService.getEmail(token);
        return questionsService.getQuestions(email);
     }
-//    @PostMapping("/select")
+    @PostMapping("/select")
+    public String select(@RequestHeader ("Authorization") String token, @RequestBody UserQuestions userAnswer) {
+        String email = authorizationHelperService.getEmail(token);
+        return null;
+    }
 }

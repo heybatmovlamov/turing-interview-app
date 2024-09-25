@@ -32,8 +32,4 @@ public class UserEntity {
 
     private Timestamp loginTime;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private PointEntity point;
-
-
 }

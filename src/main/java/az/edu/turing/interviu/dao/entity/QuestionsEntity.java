@@ -1,5 +1,6 @@
 package az.edu.turing.interviu.dao.entity;
 
+import az.edu.turing.interviu.model.enums.CategoryEnums;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -16,5 +17,6 @@ public class QuestionsEntity {
     private String option3;
     private String option4;
     private String rightAnswer;
-    private String category;
+    @Enumerated(EnumType.STRING)
+    private CategoryEnums category;
 }

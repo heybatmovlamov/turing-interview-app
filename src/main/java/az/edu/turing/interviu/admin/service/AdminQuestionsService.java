@@ -22,7 +22,7 @@ public class AdminQuestionsService {
         return questionsMapper.entityToDto(save);
     }
     public List<QuestionsDto> getQuestions(CategoryEnums categoryEnums){
-        List<QuestionsEntity> byCategory = questionsRepository.findByCategory(categoryEnums.name());
+        List<QuestionsEntity> byCategory = questionsRepository.findByCategory(categoryEnums);
         List<QuestionsDto> questionsDtos = questionsMapper.entityListToDtoList(byCategory);
         return questionsDtos;
     }

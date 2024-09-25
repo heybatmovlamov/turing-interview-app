@@ -1,14 +1,12 @@
 package az.edu.turing.interviu.model.dto;
 
 import az.edu.turing.interviu.model.enums.CategoryEnums;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 public class QuestionsDto {
 
     private String questionTitle;

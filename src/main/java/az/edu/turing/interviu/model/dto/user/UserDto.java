@@ -1,6 +1,8 @@
 package az.edu.turing.interviu.model.dto.user;
 
 import az.edu.turing.interviu.model.enums.CategoryEnums;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -29,6 +31,7 @@ public class UserDto {
     private String phone;
 
     @NotNull(message = "Specialty cannot be null")
+    @Enumerated(EnumType.STRING)
     private CategoryEnums category;
 }
 
