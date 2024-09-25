@@ -1,4 +1,4 @@
-package az.edu.turing.interviu.model.dto;
+package az.edu.turing.interviu.model.dto.user;
 
 import az.edu.turing.interviu.model.enums.CategoryEnums;
 import jakarta.validation.constraints.*;
@@ -29,6 +29,6 @@ public class UserDto {
     private String phone;
 
     @NotNull(message = "Specialty cannot be null")
-    private CategoryEnums specialty;
+    private CategoryEnums category;
 }
 

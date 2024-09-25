@@ -6,11 +6,15 @@ import lombok.Data;
 @Data
 @Entity(name = "questions")
 public class QuestionsEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String  question;
+    private String questionTitle;
+    private String option1;
+    private String option2;
+    private String option3;
+    private String option4;
+    private String rightAnswer;
     private String category;
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private UserEntity user;
 }

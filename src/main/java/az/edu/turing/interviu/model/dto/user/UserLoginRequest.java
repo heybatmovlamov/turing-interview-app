@@ -1,4 +1,4 @@
-package az.edu.turing.interviu.model.dto;
+package az.edu.turing.interviu.model.dto.user;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

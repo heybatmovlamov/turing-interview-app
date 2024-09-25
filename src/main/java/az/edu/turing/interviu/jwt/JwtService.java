@@ -37,13 +37,13 @@ public class JwtService {
         return extractExpiration(token).before(new Date());
     }
     public Boolean validateToken(String token , UserDetails userDetails){
-        final String finCode = extractUsername(token);
-        return finCode.equals(userDetails.getUsername()) && !isTokenExpired(token);
+        final String email = extractUsername(token);
+        return email.equals(userDetails.getUsername()) && !isTokenExpired(token);
     }
 
-    public String generateToken(String finCode){
+    public String generateToken(String email) {
         Map<String ,Object> claims = new HashMap<>();
-        return createToken(claims,finCode);
+        return createToken(claims,email);
     }
 
     private String createToken(Map<String, Object> claims, String subject) {
@@ -51,7 +51,7 @@ public class JwtService {
                 .setClaims(claims)
                 .setSubject(subject)
                 .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() *100 * 60 * 60 * 10 ))
+                .setExpiration(new Date(System.currentTimeMillis() + (65 * 60 * 1000)))
                 .signWith(SignatureAlgorithm.HS256 ,SECRET_KEY)
                 .compact();
     }

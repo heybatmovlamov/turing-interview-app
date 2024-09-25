@@ -1,6 +1,7 @@
 package az.edu.turing.interviu.dao.entity;
 
 import az.edu.turing.interviu.model.enums.CategoryEnums;
+import az.edu.turing.interviu.model.enums.Role;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -26,6 +27,8 @@ public class UserEntity {
 
     @Enumerated(EnumType.STRING)
     private CategoryEnums category;
+
+    private Role role = Role.USER_ROLE;
 
     private Timestamp loginTime;
 

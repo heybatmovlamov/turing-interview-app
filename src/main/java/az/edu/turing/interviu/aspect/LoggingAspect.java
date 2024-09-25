@@ -14,7 +14,7 @@ public class LoggingAspect {
     @Before("execution(* az.edu.turing.interviu.service.UserService..*())")
     public void logBeforeServiceMethod(JoinPoint joinPoint) {
         String methodName = joinPoint.getSignature().getName();
-        log.info("AdminUserService method called: {} ", methodName);
+        log.info("UserService method called: {} ", methodName);
     }
 
 
