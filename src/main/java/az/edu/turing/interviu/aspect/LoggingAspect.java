@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class LoggingAspect {
 
-    @Before("execution(* az.edu.turing.interviu.service.UserService..*())")
+    @Before("execution(* az.edu.turing.interviu.service.user.UserService..*())")
     public void logBeforeServiceMethod(JoinPoint joinPoint) {
         String methodName = joinPoint.getSignature().getName();
         log.info("UserService method called: {} ", methodName);

@@ -1,4 +1,4 @@
-package az.edu.turing.interviu.service;
+package az.edu.turing.interviu.service.notification;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
