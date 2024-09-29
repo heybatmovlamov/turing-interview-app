@@ -1,9 +1,9 @@
-package az.edu.turing.interviu.service;
+package az.edu.turing.interviu.service.user;
 
+import az.edu.turing.interviu.dao.entity.UserEntity;
 import az.edu.turing.interviu.dao.repository.UserRepository;
 import az.edu.turing.interviu.mapper.UserMapper;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @RequiredArgsConstructor
@@ -11,12 +11,12 @@ import org.springframework.stereotype.Service;
 public class UserService {
     private final UserRepository userRepository;
     private final UserMapper userMapper;
-    private final NotificationService notificationService;
-    private final PasswordEncoder passwordEncoder;
-    public String getPoint(){
-        return  "100";
-    }
 
+
+    public UserEntity getUserData(){
+        //return user point
+        return null;
+    }
 
 
 }

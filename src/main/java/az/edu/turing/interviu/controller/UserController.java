@@ -1,31 +1,33 @@
 package az.edu.turing.interviu.controller;
 
-import az.edu.turing.interviu.model.dto.QuestionsDto;
-import az.edu.turing.interviu.model.dto.user.UserQuestions;
-import az.edu.turing.interviu.service.QuestionsService;
-import az.edu.turing.interviu.service.UserService;
+import az.edu.turing.interviu.model.dto.answer.AnswerRequest;
+import az.edu.turing.interviu.model.dto.questions.QuestionsDto;
+import az.edu.turing.interviu.service.questions.QuestionsService;
 import az.edu.turing.interviu.service.authorization.AuthorizationHelperService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Slf4j
 @RequestMapping("/user")
 @RestController
 @RequiredArgsConstructor
 public class UserController {
-    private final UserService userService;
     private final QuestionsService questionsService;
     private final AuthorizationHelperService authorizationHelperService;
 
-    @GetMapping("/questions")
-    public List<QuestionsDto> getQuestions(@RequestHeader ("Authorization") String token ) {
+    @GetMapping("/questions/{page}")
+    public List<QuestionsDto> getQuestions(@RequestHeader("Authorization") String token, @PathVariable Integer page) {
         String email = authorizationHelperService.getEmail(token);
-       return questionsService.getQuestions(email);
+        return questionsService.getQuestions(email, page);
     }
+
     @PostMapping("/select")
-    public String select(@RequestHeader ("Authorization") String token, @RequestBody UserQuestions userAnswer) {
+    public String select(@RequestHeader ("Authorization") String token,@RequestBody List<AnswerRequest> answers) {
         String email = authorizationHelperService.getEmail(token);
-        return null;
+        questionsService.selectAnswers(email,answers);
+        return "success";
     }
 }
