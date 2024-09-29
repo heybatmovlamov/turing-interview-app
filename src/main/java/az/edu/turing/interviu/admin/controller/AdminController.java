@@ -3,7 +3,7 @@ package az.edu.turing.interviu.admin.controller;
 import az.edu.turing.interviu.admin.service.AdminQuestionsService;
 import az.edu.turing.interviu.admin.service.AdminUserService;
 import az.edu.turing.interviu.mapper.UserMapper;
-import az.edu.turing.interviu.model.dto.QuestionsDto;
+import az.edu.turing.interviu.model.dto.questions.QuestionsDto;
 import az.edu.turing.interviu.model.dto.user.UserDto;
 import az.edu.turing.interviu.model.enums.CategoryEnums;
 import lombok.RequiredArgsConstructor;
