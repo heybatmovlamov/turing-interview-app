@@ -1,4 +1,4 @@
-package az.edu.turing.interviu.service;
+package az.edu.turing.interviu.service.auth;
 
 import az.edu.turing.interviu.dao.entity.UserEntity;
 import az.edu.turing.interviu.dao.repository.UserRepository;

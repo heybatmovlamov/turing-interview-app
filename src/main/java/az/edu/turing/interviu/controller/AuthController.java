@@ -3,8 +3,7 @@ package az.edu.turing.interviu.controller;
 import az.edu.turing.interviu.model.dto.TokenDto;
 import az.edu.turing.interviu.model.dto.user.UserDto;
 import az.edu.turing.interviu.model.dto.user.UserLoginRequest;
-import az.edu.turing.interviu.service.AuthService;
-import az.edu.turing.interviu.service.NotificationService;
+import az.edu.turing.interviu.service.auth.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,7 +17,6 @@ public class AuthController {
     private final AuthService authService;
     @PostMapping("/register")
     public ResponseEntity<TokenDto> register(@RequestBody UserDto userDto) {
-
         TokenDto registeredToken = authService.authenticateRegister(userDto);
         return ResponseEntity.ok(registeredToken);
     }
