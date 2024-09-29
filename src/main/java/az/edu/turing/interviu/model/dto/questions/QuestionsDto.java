@@ -1,16 +1,17 @@
-package az.edu.turing.interviu.model.dto.user;
+package az.edu.turing.interviu.model.dto.questions;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserQuestions {
+public class QuestionsDto {
+    private Long id;
     private String questionTitle;
     private String option1;
     private String option2;
     private String option3;
     private String option4;
+    private String category;
 }
