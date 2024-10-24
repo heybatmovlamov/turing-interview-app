@@ -1,6 +1,6 @@
 package az.edu.turing.interviu.config;
 
-import az.edu.turing.interviu.jwt.JwtFilter;
+import az.edu.turing.interviu.jwt.JwtUserFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,25 +18,26 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @RequiredArgsConstructor
 public class SecurityConfig {
 
-    private final JwtFilter jwtFilter;
+    private final JwtUserFilter jwtUserFilter;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/login").permitAll()
-                        .requestMatchers("/admin/**").permitAll()
-                        .requestMatchers("/register").permitAll()
-                        .anyRequest().authenticated()
+                        .requestMatchers("/login", "/register").permitAll()  // herkese açık
+                        .requestMatchers("/admin/**").hasRole("ADMIN") // sadece ADMIN erişebilir
+                        .anyRequest().authenticated()  // diğer tüm istekler doğrulama gerektirir
                 )
                 .sessionManagement(sess -> sess
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 );
 
-        http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
+        http.addFilterBefore(jwtUserFilter, UsernamePasswordAuthenticationFilter.class);
+
         return http.build();
     }
+
 
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {

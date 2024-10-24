@@ -41,9 +41,11 @@ public class JwtService {
         return email.equals(userDetails.getUsername()) && !isTokenExpired(token);
     }
 
-    public String generateToken(String email) {
-        Map<String ,Object> claims = new HashMap<>();
-        return createToken(claims,email);
+
+    public String generateToken(UserDetails userDetails) {
+        Map<String, Object> claims = new HashMap<>();
+        claims.put("roles", userDetails.getAuthorities());
+        return createToken(claims, userDetails.getUsername());
     }
 
     private String createToken(Map<String, Object> claims, String subject) {

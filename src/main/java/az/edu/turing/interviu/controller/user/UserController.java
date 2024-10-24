@@ -1,4 +1,4 @@
-package az.edu.turing.interviu.controller;
+package az.edu.turing.interviu.controller.user;
 
 import az.edu.turing.interviu.model.dto.answer.AnswerRequest;
 import az.edu.turing.interviu.model.dto.questions.QuestionsDto;
@@ -30,4 +30,5 @@ public class UserController {
         questionsService.selectAnswers(email,answers);
         return "success";
     }
+
 }

@@ -16,7 +16,7 @@ import java.io.IOException;
 
 @RequiredArgsConstructor
 @Component
-public class JwtFilter extends OncePerRequestFilter {
+public class JwtUserFilter extends OncePerRequestFilter {
 
     private final JwtService jwtService;
     private final UserDetailsServiceImpl userDetailsService;
@@ -29,6 +29,8 @@ public class JwtFilter extends OncePerRequestFilter {
         String email = null;
 
         if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
+
+
             token = authorizationHeader.substring(7);
             email = jwtService.extractUsername(token);
         }

@@ -1,4 +1,4 @@
-package az.edu.turing.interviu.model.dto;
+package az.edu.turing.interviu.model.dto.token;
 
 import lombok.Getter;
 import lombok.Setter;

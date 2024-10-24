@@ -7,5 +7,6 @@ public enum CategoryEnums {
     PROJECT_MANAGEMENT,
     PRODUCT_OWNER,
     DATA_SCIENCE,
-    DATA_ANALYTICS
+    DATA_ANALYTICS,
+    ADMIN
 }

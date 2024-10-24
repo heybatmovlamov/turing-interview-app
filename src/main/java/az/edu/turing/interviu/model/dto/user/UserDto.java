@@ -1,14 +1,19 @@
 package az.edu.turing.interviu.model.dto.user;
 
 import az.edu.turing.interviu.model.enums.CategoryEnums;
+import az.edu.turing.interviu.model.enums.Role;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.UniqueConstraint;
 import jakarta.validation.constraints.*;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
+import org.hibernate.validator.constraints.UniqueElements;
 
 @Getter
 @Setter
+@ToString
 public class UserDto {
 
     @NotBlank(message = "Name cannot be blank")
@@ -21,7 +26,7 @@ public class UserDto {
 
     @NotBlank(message = "Password cannot be blank")
     @NotNull(message = "Password cannot be null")
-    @Size(min = 8, message = "Password must be at least 8 characters long")
+    @Size(min = 8, message = "Password must be at least 8 characters long")//todo @password
     private String password;
 
     @NotBlank(message = "Email cannot be blank")
@@ -29,6 +34,8 @@ public class UserDto {
     private String email;
 
     private String phone;
+
+    private Role role = Role.ROLE_USER;
 
     @NotNull(message = "Specialty cannot be null")
     @Enumerated(EnumType.STRING)

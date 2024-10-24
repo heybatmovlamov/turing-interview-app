@@ -21,6 +21,7 @@ public class UserEntity {
 
     private String password;
 
+    @Column(unique = true)
     private String email;
 
     private String phone;
@@ -28,7 +29,8 @@ public class UserEntity {
     @Enumerated(EnumType.STRING)
     private CategoryEnums category;
 
-    private Role role = Role.USER_ROLE;
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
     private Timestamp loginTime;
 
